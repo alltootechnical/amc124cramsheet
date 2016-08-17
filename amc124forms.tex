@@ -1,0 +1,213 @@
+%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=0.5in,rmargin=0.5in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{babel}
+\usepackage{amssymb}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={Discrete Math Cram Sheet},
+ pdfauthor={Brian},
+ pdfsubject={AMC 124}}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{pgfplots}
+\usepackage{tocloft}
+
+\makeatother
+
+\begin{document}
+
+\lhead{\textsf{\textbf{Discrete Math Cram Sheet}}}
+
+
+\rhead{\textsf{\href{http://alltootechnical.tk}{alltootechnical.tk}}}
+
+
+\title{\textsf{\textbf{Discrete Math Cram Sheet}}}
+
+
+\date{\textsf{\today{}}}
+
+\maketitle
+\begin{multicols}{2}
+
+\tableofcontents{}
+
+\end{multicols}
+
+\newpage{}
+
+\begin{multicols}{2}
+
+
+\section{Propositional Logic}
+
+
+\subsection{Truth Tables}
+
+\begin{tabular}{|c|cccc|l|}
+\cline{1-5} 
+$p$ & T & T & F & F & \multicolumn{1}{l}{}\tabularnewline
+$q$ & T & F & T & F & \multicolumn{1}{l}{}\tabularnewline
+\hline 
+F & F & F & F & F & contradiction\tabularnewline
+$p\veebar q$ & F & F & F & T & joint denial\tabularnewline
+$p\nleftarrow q$ & F & F & T & F & converse nonimplication\tabularnewline
+$\lnot p$ & F & F & T & T & left negation\tabularnewline
+$p\nrightarrow q$ & F & T & F & F & nonimplication\tabularnewline
+$\lnot q$ & F & T & F & T & right negation\tabularnewline
+$p\oplus q$ & F & T & T & F & exclusive disjunction\tabularnewline
+$p\barwedge q$ & F & T & T & T & alternative denial\tabularnewline
+$p\wedge q$ & T & F & F & F & conjunction\tabularnewline
+$p\leftrightarrow q$ & T & F & F & T & biconditional\tabularnewline
+$q$ & T & F & T & F & right projection\tabularnewline
+$p\rightarrow q$ & T & F & T & T & implication\tabularnewline
+$p$ & T & T & F & F & left projection\tabularnewline
+$p\leftarrow q$ & T & T & F & T & converse implication\tabularnewline
+$p\vee q$ & T & T & T & F & disjunction\tabularnewline
+T & T & T & T & T & tautology\tabularnewline
+\hline 
+\end{tabular}
+
+
+\subsection{Propositional Equivalences}
+
+\begin{multicols}{2}
+
+
+\subsubsection*{Identity}
+\begin{itemize}
+\item $p\wedge\mathrm{T}\equiv p$
+\item $p\vee\mathrm{F}\equiv p$
+\end{itemize}
+
+\subsubsection*{Domination}
+\begin{itemize}
+\item $p\vee\mathrm{T}\equiv\mathrm{T}$
+\item $p\wedge\mathrm{F}\equiv\mathrm{F}$
+\end{itemize}
+
+\subsubsection*{Idempotent}
+\begin{itemize}
+\item $p\wedge p\equiv p$
+\item $p\vee p\equiv p$
+\end{itemize}
+
+\subsubsection*{Commutative}
+\begin{itemize}
+\item $p\wedge q\equiv q\wedge p$
+\item $p\vee q\equiv q\vee p$
+\end{itemize}
+
+\subsubsection*{De Morgan's}
+\begin{itemize}
+\item $\lnot\left(p\wedge q\right)\equiv\lnot p\vee\lnot q$
+\item $\lnot\left(p\vee q\right)\equiv\lnot p\wedge\lnot q$
+\end{itemize}
+
+\subsubsection*{Absorption}
+\begin{itemize}
+\item $p\wedge\left(p\vee q\right)\equiv p$
+\item $p\vee\left(p\wedge q\right)\equiv p$
+\end{itemize}
+
+\subsubsection*{Negation}
+\begin{itemize}
+\item $p\vee\lnot p\equiv\mathrm{T}$
+\item $p\wedge\lnot p\equiv\mathrm{F}$
+\end{itemize}
+
+\subsubsection*{Double Negation}
+\begin{itemize}
+\item $\lnot\left(\lnot p\right)\equiv p$
+\end{itemize}
+\end{multicols}
+
+
+\subsubsection*{Associative}
+\begin{itemize}
+\item $p\wedge\left(q\wedge r\right)\equiv\left(p\wedge q\right)\wedge r$
+\item $p\vee\left(q\vee r\right)\equiv\left(p\vee q\right)\vee r$
+\end{itemize}
+
+\subsubsection*{Distributive}
+\begin{itemize}
+\item $p\vee\left(q\wedge r\right)\equiv\left(p\vee q\right)\wedge\left(p\vee r\right)$
+\item $p\wedge\left(q\vee r\right)\equiv\left(p\wedge q\right)\vee\left(p\wedge r\right)$
+\end{itemize}
+
+\subsubsection*{Involving Biconditionals}
+\begin{itemize}
+\item $p\leftrightarrow q\equiv\left(p\rightarrow q\right)\wedge\left(q\rightarrow p\right)$
+\item $p\leftrightarrow q\equiv\lnot p\leftrightarrow\lnot q$
+\item $p\leftrightarrow q\equiv\left(p\wedge q\right)\vee\left(\lnot p\wedge\lnot q\right)$
+\item $\lnot\left(p\leftrightarrow q\right)\equiv p\leftrightarrow\lnot q$
+\end{itemize}
+
+\subsubsection*{Involving Conditional Statements}
+\begin{itemize}
+\item $p\rightarrow q\equiv\lnot p\vee q$
+\item $p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
+\item $p\vee q\equiv\lnot p\rightarrow q$
+\item $p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
+\item $\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\wedge r\right)$
+\item $\left(p\rightarrow r\right)\wedge\left(q\rightarrow r\right)\equiv\left(p\vee q\right)\rightarrow r$
+\item $\left(p\rightarrow q\right)\vee\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\vee r\right)$
+\item $\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)\equiv\left(p\wedge q\right)\rightarrow r$
+\end{itemize}
+
+\subsection{Rules of Inference}
+
+\newpage{}
+
+
+\section{Proofs}
+
+
+\subsection{Mathematical Induction}
+
+
+\subsection{Strong Induction}
+
+
+\section{Recurrence Relations}
+
+
+\section{Number Theory}
+
+
+\section{Graph Theory}
+
+
+\section{Linear Algebra}
+
+
+\section{Combinatorics}
+
+
+\section{Probability}
+
+\end{multicols}
+\end{document}

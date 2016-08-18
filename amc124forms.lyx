@@ -183,9 +183,6 @@ end{multicols}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -200,7 +197,7 @@ status open
 
 
 \backslash
-begin{multicols}{2}
+begin{multicols*}{2}
 \end_layout
 
 \end_inset
@@ -1290,209 +1287,538 @@ tautology
 \end_layout
 
 \begin_layout Subsection
-Propositional Equivalences
+Logical Equivalences
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top">
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{multicols}{2}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
 Identity
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge\mathrm{T}\equiv p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee\mathrm{F}\equiv p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection*
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Domination
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee\mathrm{T}\equiv\mathrm{T}$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge\mathrm{F}\equiv\mathrm{F}$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection*
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Idempotent
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge p\equiv p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee p\equiv p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection*
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Commutative
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge q\equiv q\wedge p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee q\equiv q\vee p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection*
-De Morgan's
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\lnot\left(p\wedge q\right)\equiv\lnot p\vee\lnot q$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
-\begin_inset Formula $\lnot\left(p\vee q\right)\equiv\lnot p\wedge\lnot q$
 \end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Absorption
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p\wedge\left(p\vee q\right)\equiv p$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p\vee\left(p\wedge q\right)\equiv p$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Negation
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p\vee\lnot p\equiv\mathrm{T}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p\wedge\lnot p\equiv\mathrm{F}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Double Negation
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\lnot\left(\lnot p\right)\equiv p$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-
-
-\backslash
-end{multicols}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
 Associative
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge\left(q\wedge r\right)\equiv\left(p\wedge q\right)\wedge r$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee\left(q\vee r\right)\equiv\left(p\vee q\right)\vee r$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection*
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Distributive
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee\left(q\wedge r\right)\equiv\left(p\vee q\right)\wedge\left(p\vee r\right)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge\left(q\vee r\right)\equiv\left(p\wedge q\right)\vee\left(p\wedge r\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+De Morgan's
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $\lnot\left(p\wedge q\right)\equiv\lnot p\vee\lnot q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $\lnot\left(p\vee q\right)\equiv\lnot p\wedge\lnot q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Absorption
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $p\wedge\left(p\vee q\right)\equiv p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $p\vee\left(p\wedge q\right)\equiv p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Negation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $p\vee\lnot p\equiv\mathrm{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $p\wedge\lnot p\equiv\mathrm{F}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Double Negation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\noindent
+\begin_inset Formula $\lnot\left(\lnot p\right)\equiv p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
 \end_inset
 
 
@@ -1502,28 +1828,36 @@ Distributive
 Involving Biconditionals
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\leftrightarrow q\equiv\left(p\rightarrow q\right)\wedge\left(q\rightarrow p\right)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\leftrightarrow q\equiv\lnot p\leftrightarrow\lnot q$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\leftrightarrow q\equiv\left(p\wedge q\right)\vee\left(\lnot p\wedge\lnot q\right)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $\lnot\left(p\leftrightarrow q\right)\equiv p\leftrightarrow\lnot q$
 \end_inset
 
@@ -1534,56 +1868,72 @@ Involving Biconditionals
 Involving Conditional Statements
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\rightarrow q\equiv\lnot p\vee q$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\vee q\equiv\lnot p\rightarrow q$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\wedge r\right)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $\left(p\rightarrow r\right)\wedge\left(q\rightarrow r\right)\equiv\left(p\vee q\right)\rightarrow r$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $\left(p\rightarrow q\right)\vee\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\vee r\right)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
 \begin_inset Formula $\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)\equiv\left(p\wedge q\right)\rightarrow r$
 \end_inset
 
@@ -1595,10 +1945,534 @@ Rules of Inference
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Tabular
+<lyxtabular version="3" rows="18" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modus Ponens
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+p\rightarrow q\\
+\underline{p\quad\quad}\\
+q
+\end{array}$
 \end_inset
 
 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modus Tollens
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\lnot q\\
+\underline{p\rightarrow q}\\
+\lnot p
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Associative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{\left(p\vee q\right)\vee r}\\
+p\vee\left(q\vee r\right)
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Commutative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\wedge q}\\
+q\wedge p
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Biconditional
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+p\rightarrow q\\
+\underline{q\rightarrow p}\\
+p\leftrightarrow q
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exportation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{\left(p\wedge q\right)\rightarrow r\;\;}\\
+p\rightarrow\left(q\rightarrow r\right)
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Contraposition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\rightarrow q\quad\;}\\
+\lnot q\rightarrow\lnot p
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hypothetical Syllogism
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+p\rightarrow q\\
+\underline{q\rightarrow r}\\
+p\rightarrow r
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Material Implication
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\rightarrow q\;}\\
+\lnot p\vee q
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distributive
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{\left(p\vee q\right)\wedge r\quad\quad}\;\\
+\left(p\wedge r\right)\vee\left(q\wedge r\right)
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Absorption
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\rightarrow q\quad\qquad}\\
+p\rightarrow\left(p\wedge q\right)
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Disjunctive Syllogism
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+p\vee q\\
+\underline{\lnot p\quad\quad}\\
+q
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Addition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\qquad}\\
+p\vee q
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simplification
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\wedge q\;}\\
+p
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Conjunction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+p\\
+\underline{q\quad\quad}\\
+p\wedge q
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Double Negation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\qquad}\\
+\lnot\lnot p
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Disjunctive Simplification
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\underline{p\vee p\;}\\
+p
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resolution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{l}
+\;\;\:p\vee q\\
+\underline{\lnot p\vee r}\\
+q\vee r
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Satisfiability
+\end_layout
+
+\begin_layout Standard
+A proposition is 
+\emph on
+satisfiable
+\emph default
+ if some setting of the variables makes the proposition true.
+ For example, 
+\begin_inset Formula $p\wedge\lnot q$
+\end_inset
+
+ is satisfiable because the expression is true if 
+\begin_inset Formula $p$
+\end_inset
+
+ is true or 
+\begin_inset Formula $q$
+\end_inset
+
+ is false.
+ On the other hand, 
+\begin_inset Formula $p\wedge\lnot p$
+\end_inset
+
+ is not satisfiable because the expression as a whole is false for both
+ settings of 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2-SAT Problem
+\end_layout
+
+\begin_layout Standard
+(to follow...)
 \end_layout
 
 \begin_layout Section
@@ -1619,6 +2493,40 @@ Recurrence Relations
 
 \begin_layout Section
 Number Theory
+\end_layout
+
+\begin_layout Subsection
+Divisibility
+\end_layout
+
+\begin_layout Subsection
+Primes and GCD
+\end_layout
+
+\begin_layout Subsubsection*
+Greatest Common Divisor
+\end_layout
+
+\begin_layout Standard
+This can be defined by the following recurrence relation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gcd\left(a,b\right)=\begin{cases}
+a & \text{if }b=0\\
+\gcd\left(b,a\bmod b\right) & \text{else}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Modular Arithmetic
 \end_layout
 
 \begin_layout Section
@@ -1645,7 +2553,7 @@ status open
 
 
 \backslash
-end{multicols}
+end{multicols*}
 \end_layout
 
 \end_inset

@@ -9,7 +9,9 @@
 \setlength{\parskip}{\smallskipamount}
 \setlength{\parindent}{0pt}
 \usepackage{babel}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{setspace}
 \usepackage[unicode=true,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
  breaklinks=true,pdfborder={0 0 0},backref=false,colorlinks=false]
@@ -34,6 +36,7 @@
 \usepackage{array}
 \usepackage{pgfplots}
 \usepackage{tocloft}
+\usepackage{tabularx}
 
 \makeatother
 
@@ -55,11 +58,9 @@
 
 \tableofcontents{}
 
-\end{multicols}
+\end{multicols}\newpage{}
 
-\newpage{}
-
-\begin{multicols}{2}
+\begin{multicols*}{2}
 
 
 \section{Propositional Logic}
@@ -92,71 +93,110 @@ T & T & T & T & T & tautology\tabularnewline
 \end{tabular}
 
 
-\subsection{Propositional Equivalences}
+\subsection{Logical Equivalences}
 
-\begin{multicols}{2}
+\begin{tabular}{ll}
+\hline 
+\noalign{\vskip\doublerulesep}
+Identity & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\wedge\mathrm{T}\equiv p$
 
+\noindent $p\vee\mathrm{F}\equiv p$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Domination & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\vee\mathrm{T}\equiv\mathrm{T}$
 
-\subsubsection*{Identity}
-\begin{itemize}
-\item $p\wedge\mathrm{T}\equiv p$
-\item $p\vee\mathrm{F}\equiv p$
-\end{itemize}
+\noindent $p\wedge\mathrm{F}\equiv\mathrm{F}$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Idempotent & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\wedge p\equiv p$
 
-\subsubsection*{Domination}
-\begin{itemize}
-\item $p\vee\mathrm{T}\equiv\mathrm{T}$
-\item $p\wedge\mathrm{F}\equiv\mathrm{F}$
-\end{itemize}
+\noindent $p\vee p\equiv p$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Commutative & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\wedge q\equiv q\wedge p$
 
-\subsubsection*{Idempotent}
-\begin{itemize}
-\item $p\wedge p\equiv p$
-\item $p\vee p\equiv p$
-\end{itemize}
+\noindent $p\vee q\equiv q\vee p$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Associative & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\wedge\left(q\wedge r\right)\equiv\left(p\wedge q\right)\wedge r$
 
-\subsubsection*{Commutative}
-\begin{itemize}
-\item $p\wedge q\equiv q\wedge p$
-\item $p\vee q\equiv q\vee p$
-\end{itemize}
+\noindent $p\vee\left(q\vee r\right)\equiv\left(p\vee q\right)\vee r$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Distributive & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\vee\left(q\wedge r\right)\equiv\left(p\vee q\right)\wedge\left(p\vee r\right)$
 
-\subsubsection*{De Morgan's}
-\begin{itemize}
-\item $\lnot\left(p\wedge q\right)\equiv\lnot p\vee\lnot q$
-\item $\lnot\left(p\vee q\right)\equiv\lnot p\wedge\lnot q$
-\end{itemize}
+\noindent $p\wedge\left(q\vee r\right)\equiv\left(p\wedge q\right)\vee\left(p\wedge r\right)$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+De Morgan's & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $\lnot\left(p\wedge q\right)\equiv\lnot p\vee\lnot q$
 
-\subsubsection*{Absorption}
-\begin{itemize}
-\item $p\wedge\left(p\vee q\right)\equiv p$
-\item $p\vee\left(p\wedge q\right)\equiv p$
-\end{itemize}
+\noindent $\lnot\left(p\vee q\right)\equiv\lnot p\wedge\lnot q$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Absorption & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\wedge\left(p\vee q\right)\equiv p$
 
-\subsubsection*{Negation}
-\begin{itemize}
-\item $p\vee\lnot p\equiv\mathrm{T}$
-\item $p\wedge\lnot p\equiv\mathrm{F}$
-\end{itemize}
+\noindent $p\vee\left(p\wedge q\right)\equiv p$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Negation & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $p\vee\lnot p\equiv\mathrm{T}$
 
-\subsubsection*{Double Negation}
-\begin{itemize}
-\item $\lnot\left(\lnot p\right)\equiv p$
-\end{itemize}
-\end{multicols}
+\noindent $p\wedge\lnot p\equiv\mathrm{F}$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\noalign{\vskip\doublerulesep}
+Double Negation & %
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{spacing}{0.5}
+\noindent $\lnot\left(\lnot p\right)\equiv p$\end{spacing}
+%
+\end{minipage}\tabularnewline
+\hline 
+\end{tabular}
 
-
-\subsubsection*{Associative}
-\begin{itemize}
-\item $p\wedge\left(q\wedge r\right)\equiv\left(p\wedge q\right)\wedge r$
-\item $p\vee\left(q\vee r\right)\equiv\left(p\vee q\right)\vee r$
-\end{itemize}
-
-\subsubsection*{Distributive}
-\begin{itemize}
-\item $p\vee\left(q\wedge r\right)\equiv\left(p\vee q\right)\wedge\left(p\vee r\right)$
-\item $p\wedge\left(q\vee r\right)\equiv\left(p\wedge q\right)\vee\left(p\wedge r\right)$
-\end{itemize}
 
 \subsubsection*{Involving Biconditionals}
 \begin{itemize}
@@ -178,9 +218,145 @@ T & T & T & T & T & tautology\tabularnewline
 \item $\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)\equiv\left(p\wedge q\right)\rightarrow r$
 \end{itemize}
 
+\subsubsection*{Involving Quantifiers}
+\begin{itemize}
+\item $\lnot\left(\forall x.\;P\left(x\right)\right)\equiv\exists x.\;\lnot P\left(x\right)$
+\end{itemize}
+
 \subsection{Rules of Inference}
 
-\newpage{}
+\begin{tabularx}{\columnwidth}{ll}
+\hline 
+\noalign{\vskip\doublerulesep}
+Modus Ponens & $\begin{array}{l}
+p\rightarrow q\\
+\underline{p\quad\quad}\\
+q
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Modus Tollens & $\begin{array}{l}
+\lnot q\\
+\underline{p\rightarrow q}\\
+\lnot p
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Associative & $\begin{array}{l}
+\underline{\left(p\vee q\right)\vee r}\\
+p\vee\left(q\vee r\right)
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Commutative & $\begin{array}{l}
+\underline{p\wedge q}\\
+q\wedge p
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Biconditional & $\begin{array}{l}
+p\rightarrow q\\
+\underline{q\rightarrow p}\\
+p\leftrightarrow q
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Exportation & $\begin{array}{l}
+\underline{\left(p\wedge q\right)\rightarrow r\;\;}\\
+p\rightarrow\left(q\rightarrow r\right)
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Contraposition & $\begin{array}{l}
+\underline{p\rightarrow q\quad\;}\\
+\lnot q\rightarrow\lnot p
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Hypothetical Syllogism & $\begin{array}{l}
+p\rightarrow q\\
+\underline{q\rightarrow r}\\
+p\rightarrow r
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Material Implication & $\begin{array}{l}
+\underline{p\rightarrow q\;}\\
+\lnot p\vee q
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Distributive & $\begin{array}{l}
+\underline{\left(p\vee q\right)\wedge r\quad\quad}\;\\
+\left(p\wedge r\right)\vee\left(q\wedge r\right)
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Absorption & $\begin{array}{l}
+\underline{p\rightarrow q\quad\qquad}\\
+p\rightarrow\left(p\wedge q\right)
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Disjunctive Syllogism & $\begin{array}{l}
+p\vee q\\
+\underline{\lnot p\quad\quad}\\
+q
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Addition & $\begin{array}{l}
+\underline{p\qquad}\\
+p\vee q
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Simplification & $\begin{array}{l}
+\underline{p\wedge q\;}\\
+p
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Conjunction & $\begin{array}{l}
+p\\
+\underline{q\quad\quad}\\
+p\wedge q
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Double Negation & $\begin{array}{l}
+\underline{p\qquad}\\
+\lnot\lnot p
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Disjunctive Simplification & $\begin{array}{l}
+\underline{p\vee p\;}\\
+p
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\noalign{\vskip\doublerulesep}
+Resolution & $\begin{array}{l}
+\;\;\:p\vee q\\
+\underline{\lnot p\vee r}\\
+q\vee r
+\end{array}$\tabularnewline[\doublerulesep]
+\hline 
+\end{tabularx}
+
+
+\subsection{Satisfiability}
+
+A proposition is \emph{satisfiable} if some setting of the variables
+makes the proposition true. For example, $P\wedge\lnot Q$ is satisfiable
+because the expression is true if $P$ is true or $Q$ is false. On
+the other hand, $P\wedge\lnot P$ is not satisfiable because the expression
+as a whole is false for both settings of $P$.
+
+
+\subsubsection*{2-SAT Problem}
+
+(to follow...)
 
 
 \section{Proofs}
@@ -198,6 +374,28 @@ T & T & T & T & T & tautology\tabularnewline
 \section{Number Theory}
 
 
+\subsection{Divisibility}
+
+
+\subsection{Primes and GCD}
+
+
+\subsubsection*{Greatest Common Divisor}
+
+This can be defined by the following recurrence relation:
+
+\[
+\gcd\left(a,b\right)=\begin{cases}
+a & \text{if }b=0\\
+\gcd\left(b,a\bmod b\right) & \text{else}
+\end{cases}
+\]
+
+
+
+\subsection{Modular Arithmetic}
+
+
 \section{Graph Theory}
 
 
@@ -209,5 +407,5 @@ T & T & T & T & T & tautology\tabularnewline
 
 \section{Probability}
 
-\end{multicols}
+\end{multicols*}
 \end{document}

@@ -36,7 +36,20 @@
 \usepackage{array}
 \usepackage{pgfplots}
 \usepackage{tocloft}
-\usepackage{tabularx}
+\usepackage{mathpazo}
+
+\usetikzlibrary{calc}
+
+\tikzset{3D/.cd,
+  x/.store in=\xx, x=0,
+  y/.store in=\yy, y=0,
+  z/.store in=\zz, z=0
+}
+
+\tikzdeclarecoordinatesystem{3D}{%
+  \tikzset{3D/.cd,#1}%
+  \pgfpoint{sin(\yy)*(\xx)}{-((\xx)/75)^2+(\zz)/100*(\xx)}%
+}
 
 \makeatother
 
@@ -54,11 +67,11 @@
 \date{\textsf{\today{}}}
 
 \maketitle
-\begin{multicols}{2}
+\begin{multicols*}{2}
 
 \tableofcontents{}
 
-\end{multicols}\newpage{}
+\end{multicols*}\newpage{}
 
 \begin{multicols*}{2}
 
@@ -82,7 +95,7 @@ $\lnot q$ & F & T & F & T & right negation\tabularnewline
 $p\oplus q$ & F & T & T & F & exclusive disjunction\tabularnewline
 $p\barwedge q$ & F & T & T & T & alternative denial\tabularnewline
 $p\wedge q$ & T & F & F & F & conjunction\tabularnewline
-$p\leftrightarrow q$ & T & F & F & T & biconditional\tabularnewline
+$p\leftrightarrow q$ & T & F & F & T & biconditional/equivalence\tabularnewline
 $q$ & T & F & T & F & right projection\tabularnewline
 $p\rightarrow q$ & T & F & T & T & implication\tabularnewline
 $p$ & T & T & F & F & left projection\tabularnewline
@@ -199,159 +212,146 @@ Double Negation & %
 
 
 \subsubsection*{Involving Biconditionals}
-\begin{itemize}
-\item $p\leftrightarrow q\equiv\left(p\rightarrow q\right)\wedge\left(q\rightarrow p\right)$
-\item $p\leftrightarrow q\equiv\lnot p\leftrightarrow\lnot q$
-\item $p\leftrightarrow q\equiv\left(p\wedge q\right)\vee\left(\lnot p\wedge\lnot q\right)$
-\item $\lnot\left(p\leftrightarrow q\right)\equiv p\leftrightarrow\lnot q$
-\end{itemize}
+
+\begin{spacing}{0.5}
+\noindent $p\leftrightarrow q\equiv\left(p\rightarrow q\right)\wedge\left(q\rightarrow p\right)$
+
+\noindent $p\leftrightarrow q\equiv\lnot p\leftrightarrow\lnot q$
+
+\noindent $p\leftrightarrow q\equiv\left(p\wedge q\right)\vee\left(\lnot p\wedge\lnot q\right)$
+
+\noindent $\lnot\left(p\leftrightarrow q\right)\equiv p\leftrightarrow\lnot q$
+\end{spacing}
+
 
 \subsubsection*{Involving Conditional Statements}
-\begin{itemize}
-\item $p\rightarrow q\equiv\lnot p\vee q$
-\item $p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
-\item $p\vee q\equiv\lnot p\rightarrow q$
-\item $p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
-\item $\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\wedge r\right)$
-\item $\left(p\rightarrow r\right)\wedge\left(q\rightarrow r\right)\equiv\left(p\vee q\right)\rightarrow r$
-\item $\left(p\rightarrow q\right)\vee\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\vee r\right)$
-\item $\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)\equiv\left(p\wedge q\right)\rightarrow r$
-\end{itemize}
 
-\subsubsection*{Involving Quantifiers}
-\begin{itemize}
-\item $\lnot\left(\forall x.\;P\left(x\right)\right)\equiv\exists x.\;\lnot P\left(x\right)$
-\end{itemize}
+\begin{spacing}{0.5}
+\noindent $p\rightarrow q\equiv\lnot p\vee q\qquad$$\qquad p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
+
+\noindent $p\vee q\equiv\lnot p\rightarrow q\qquad$$\qquad p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
+
+\noindent $\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\wedge r\right)$
+
+\noindent $\left(p\rightarrow r\right)\wedge\left(q\rightarrow r\right)\equiv\left(p\vee q\right)\rightarrow r$
+
+\noindent $\left(p\rightarrow q\right)\vee\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\vee r\right)$
+
+\noindent $\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)\equiv\left(p\wedge q\right)\rightarrow r$
+\end{spacing}
+
 
 \subsection{Rules of Inference}
 
-\begin{tabularx}{\columnwidth}{ll}
+\begin{tabular}{ll}
 \hline 
-\noalign{\vskip\doublerulesep}
 Modus Ponens & $\begin{array}{l}
 p\rightarrow q\\
 \underline{p\quad\quad}\\
 q
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Modus Tollens & $\begin{array}{l}
 \lnot q\\
 \underline{p\rightarrow q}\\
 \lnot p
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Associative & $\begin{array}{l}
 \underline{\left(p\vee q\right)\vee r}\\
 p\vee\left(q\vee r\right)
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Commutative & $\begin{array}{l}
 \underline{p\wedge q}\\
 q\wedge p
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Biconditional & $\begin{array}{l}
 p\rightarrow q\\
 \underline{q\rightarrow p}\\
 p\leftrightarrow q
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Exportation & $\begin{array}{l}
 \underline{\left(p\wedge q\right)\rightarrow r\;\;}\\
 p\rightarrow\left(q\rightarrow r\right)
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Contraposition & $\begin{array}{l}
 \underline{p\rightarrow q\quad\;}\\
 \lnot q\rightarrow\lnot p
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Hypothetical Syllogism & $\begin{array}{l}
 p\rightarrow q\\
 \underline{q\rightarrow r}\\
 p\rightarrow r
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Material Implication & $\begin{array}{l}
 \underline{p\rightarrow q\;}\\
 \lnot p\vee q
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Distributive & $\begin{array}{l}
 \underline{\left(p\vee q\right)\wedge r\quad\quad}\;\\
 \left(p\wedge r\right)\vee\left(q\wedge r\right)
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Absorption & $\begin{array}{l}
 \underline{p\rightarrow q\quad\qquad}\\
 p\rightarrow\left(p\wedge q\right)
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Disjunctive Syllogism & $\begin{array}{l}
 p\vee q\\
 \underline{\lnot p\quad\quad}\\
 q
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Addition & $\begin{array}{l}
 \underline{p\qquad}\\
 p\vee q
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Simplification & $\begin{array}{l}
 \underline{p\wedge q\;}\\
 p
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Conjunction & $\begin{array}{l}
 p\\
 \underline{q\quad\quad}\\
 p\wedge q
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Double Negation & $\begin{array}{l}
 \underline{p\qquad}\\
 \lnot\lnot p
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Disjunctive Simplification & $\begin{array}{l}
 \underline{p\vee p\;}\\
 p
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\noalign{\vskip\doublerulesep}
 Resolution & $\begin{array}{l}
 \;\;\:p\vee q\\
 \underline{\lnot p\vee r}\\
 q\vee r
-\end{array}$\tabularnewline[\doublerulesep]
+\end{array}$\tabularnewline
 \hline 
-\end{tabularx}
+\end{tabular}
 
 
 \subsection{Satisfiability}
 
 A proposition is \emph{satisfiable} if some setting of the variables
-makes the proposition true. For example, $P\wedge\lnot Q$ is satisfiable
-because the expression is true if $P$ is true or $Q$ is false. On
-the other hand, $P\wedge\lnot P$ is not satisfiable because the expression
-as a whole is false for both settings of $P$.
+makes the proposition true. For example, $p\wedge\lnot q$ is satisfiable
+because the expression is true if $p$ is true or $q$ is false. On
+the other hand, $p\wedge\lnot p$ is not satisfiable because the expression
+as a whole is false for both settings of $p$.
 
 
 \subsubsection*{2-SAT Problem}
@@ -364,8 +364,32 @@ as a whole is false for both settings of $P$.
 
 \subsection{Mathematical Induction}
 
+A statement $P\left(n\right)$ involving the positive integer $n$
+is true for all positive integer values of $n$ is true if $P\left(1\right)$
+is true and if $P\left(k\right)$ is true for any arbitrary positive
+integer $k$, then $P\left(k+1\right)$ is true.
+
+\noindent \begin{center}
+\input{dominoesfalling.tikz}
+\par\end{center}
+
+The base case need not be for $n=1$. It can be adjusted to whatever
+the smallest integer value $n$ assumes.
+
 
 \subsection{Strong Induction}
+
+Let $P\left(n\right)$ be a predicate defined over all integers $n,$
+and let $a$ and $b$ be fixed integers with $a\le b.$ Suppose the
+following two statements are true:
+\begin{enumerate}
+\item Base cases: $P\left(a\right),P\left(a+1\right),\ldots,P\left(b\right)$
+are all true.
+\item Inductive step: For any integer $k>b$, if $P\left(i\right)$ is true
+for all integers $i$ with $a\le i<k$, then $P\left(k\right)$ is
+true. 
+\end{enumerate}
+Then the statement $P\left(n\right)$ is true for all integers $n\ge a.$
 
 
 \section{Recurrence Relations}
@@ -377,7 +401,10 @@ as a whole is false for both settings of $P$.
 \subsection{Divisibility}
 
 
-\subsection{Primes and GCD}
+\subsection{Primes and Factors}
+
+
+\subsection{Divisors}
 
 
 \subsubsection*{Greatest Common Divisor}
@@ -396,6 +423,31 @@ a & \text{if }b=0\\
 \subsection{Modular Arithmetic}
 
 
+\subsubsection*{Basic Rules}
+
+(to follow...)
+
+
+\subsubsection*{Chinese Remainder Theorem}
+
+Let $m_{1},m_{2},\ldots,m_{n}$ be pairwise relatively prime positive
+integers, and $a_{1},a_{2},\ldots,a_{n}$ be arbitrary integers. Then
+the system 
+\[
+\left\{ \begin{array}{c}
+x\equiv a_{1}\pmod{m_{1}}\\
+x\equiv a_{2}\pmod{m_{2}}\\
+\vdots\\
+x\equiv a_{n}\pmod{m_{n}}
+\end{array}\right.
+\]
+
+
+has a unique solution modulo $m=m_{1}m_{2}\cdots m_{n}$, where $x=\sum_{k=1}^{n}a_{k}M_{k}y_{k}$,
+$M_{k}=\frac{m}{m_{k}}$, and $y_{k}$ is the modular inverse of $M_{k}$
+modulo $m_{k}$, i.e. $M_{k}y_{k}\equiv1\pmod{m_{k}}$.
+
+
 \section{Graph Theory}
 
 
@@ -403,6 +455,91 @@ a & \text{if }b=0\\
 
 
 \section{Combinatorics}
+
+
+\subsection{Permutations and Combinations}
+
+
+\subsubsection*{Permutation}
+
+A permutation or ranking of $n$ objects is a listing of them in a
+certain order from first to last.
+
+
+\subsubsection*{Combination}
+
+A combination of $k$ objects taken from a collection of $n$ objects
+is simply a selection of $k$ of those distinct objects without regard
+to order.
+
+
+\subsection{Binomial Coefficients}
+
+
+\subsection{Generalized Permutations and Combinations}
+
+
+\subsubsection*{Permutations with Duplicate Objects}
+
+The number of permutations of a multiset of $n$ objects made up of
+$k$ distinct objects can be expressed as follows: 
+\[
+\binom{n}{n_{1},n_{2},\ldots,n_{k}}=\frac{n!}{n_{1}!n_{2}!\cdots n_{k}!}
+\]
+
+
+where $n_{i}$ represents the multiplicity of a distinct object $i$
+in the multiset.
+
+
+\subsubsection*{Combinations with Repetition (Dashes and Dividers)}
+
+The number of combinations of length $n$ using $k$ different kinds
+of objects is 
+\[
+_{n}R_{k}=\binom{n+k-1}{k-1}=\binom{n+k-1}{n}=\frac{\left(n+k-1\right)!}{n!\left(k-1\right)!}
+\]
+
+
+
+\paragraph*{Number of Non-negative Integer Solutions}
+
+The number of solutions of the equation $x_{1}+x_{2}+\cdots+x_{k}=n$
+in non-negative integers is $\binom{n+k-1}{k-1}$.
+
+
+\paragraph*{Number of Positive Integer Solutions}
+
+The number of solutions of the equation $x_{1}+x_{2}+\cdots+x_{k}=n$
+in positive integers is $\binom{n-1}{k-1}$.
+
+
+\subsection{Principle of Inclusion-Exclusion}
+
+This provides an organized method/formula to find the number of elements
+in the union of a given group of sets, the size of each set, and the
+size of all possible intersections among the sets.
+
+
+\subsubsection*{Two/Three Sets}
+
+Suppose that $A,$$B,$ and $C$ are finite sets. Then:
+\begin{itemize}
+\item $|A\cup B|=|A|+|B|-|A\cap B|$
+\item $|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|$
+\end{itemize}
+
+\subsubsection*{General Form}
+
+For finite sets $A_{1},\ldots,A_{n}$, one has the identity:
+
+\begin{eqnarray*}
+{\biggl|}\bigcup_{{i=1}}^{n}A_{i}{\biggr|} & = & \sum_{{i=1}}^{n}\left|A_{i}\right|\;-\sum_{{1\leq i<j\leq n}}\left|A_{i}\cap A_{j}\right|\;\\
+ &  & +\sum_{{1\leq i<j<k\leq n}}\left|A_{i}\cap A_{j}\cap A_{k}\right|\;\\
+ &  & -\ \ldots\ +\;\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|\\
+ & = & \sum_{{k=1}}^{{n}}(-1)^{{k+1}}\left(\sum_{{1\leq i_{{1}}<\cdots<i_{{k}}\leq n}}\left|A_{{i_{{1}}}}\cap\cdots\cap A_{{i_{{k}}}}\right|\right)
+\end{eqnarray*}
+
 
 
 \section{Probability}

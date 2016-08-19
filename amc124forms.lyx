@@ -13,10 +13,25 @@
 \usepackage{array}
 \usepackage{pgfplots}
 \usepackage{tocloft}
+\usepackage{mathpazo}
+
+\usetikzlibrary{calc}
+
+\tikzset{3D/.cd,
+  x/.store in=\xx, x=0,
+  y/.store in=\yy, y=0,
+  z/.store in=\zz, z=0
+}
+
+\tikzdeclarecoordinatesystem{3D}{%
+  \tikzset{3D/.cd,#1}%
+  \pgfpoint{sin(\yy)*(\xx)}{-((\xx)/75)^2+(\zz)/100*(\xx)}%
+}
 \end_preamble
 \use_default_options true
 \begin_modules
 customHeadersFooters
+multicol
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -30,7 +45,7 @@ customHeadersFooters
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_osf true
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
@@ -152,7 +167,7 @@ status open
 
 
 \backslash
-begin{multicols}{2}
+begin{multicols*}{2}
 \end_layout
 
 \end_inset
@@ -177,7 +192,7 @@ status open
 
 
 \backslash
-end{multicols}
+end{multicols*}
 \end_layout
 
 \end_inset
@@ -922,7 +937,7 @@ T
 \begin_inset Text
 
 \begin_layout Plain Layout
-biconditional
+biconditional/equivalence
 \end_layout
 
 \end_inset
@@ -1871,7 +1886,11 @@ Involving Conditional Statements
 \begin_layout Standard
 \paragraph_spacing other 0.5
 \noindent
-\begin_inset Formula $p\rightarrow q\equiv\lnot p\vee q$
+\begin_inset Formula $p\rightarrow q\equiv\lnot p\vee q\qquad$
+\end_inset
+
+
+\begin_inset Formula $\qquad p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
 \end_inset
 
 
@@ -1880,25 +1899,11 @@ Involving Conditional Statements
 \begin_layout Standard
 \paragraph_spacing other 0.5
 \noindent
-\begin_inset Formula $p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
+\begin_inset Formula $p\vee q\equiv\lnot p\rightarrow q\qquad$
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing other 0.5
-\noindent
-\begin_inset Formula $p\vee q\equiv\lnot p\rightarrow q$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing other 0.5
-\noindent
-\begin_inset Formula $p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
+\begin_inset Formula $\qquad p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
 \end_inset
 
 
@@ -2483,8 +2488,140 @@ Proofs
 Mathematical Induction
 \end_layout
 
+\begin_layout Standard
+A statement 
+\begin_inset Formula $P\left(n\right)$
+\end_inset
+
+ involving the positive integer 
+\begin_inset Formula $n$
+\end_inset
+
+ is true for all positive integer values of 
+\begin_inset Formula $n$
+\end_inset
+
+ is true if 
+\begin_inset Formula $P\left(1\right)$
+\end_inset
+
+ is true and if 
+\begin_inset Formula $P\left(k\right)$
+\end_inset
+
+ is true for any arbitrary positive integer 
+\begin_inset Formula $k$
+\end_inset
+
+, then 
+\begin_inset Formula $P\left(k+1\right)$
+\end_inset
+
+ is true.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{dominoesfalling.tikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The base case need not be for 
+\begin_inset Formula $n=1$
+\end_inset
+
+.
+ It can be adjusted to whatever the smallest integer value 
+\begin_inset Formula $n$
+\end_inset
+
+ assumes.
+\end_layout
+
 \begin_layout Subsection
 Strong Induction
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $P\left(n\right)$
+\end_inset
+
+ be a predicate defined over all integers 
+\begin_inset Formula $n,$
+\end_inset
+
+ and let 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ be fixed integers with 
+\begin_inset Formula $a\le b.$
+\end_inset
+
+ Suppose the following two statements are true:
+\end_layout
+
+\begin_layout Enumerate
+Base cases: 
+\begin_inset Formula $P\left(a\right),P\left(a+1\right),\ldots,P\left(b\right)$
+\end_inset
+
+ are all true.
+\end_layout
+
+\begin_layout Enumerate
+Inductive step: For any integer 
+\begin_inset Formula $k>b$
+\end_inset
+
+, if 
+\begin_inset Formula $P\left(i\right)$
+\end_inset
+
+ is true for all integers 
+\begin_inset Formula $i$
+\end_inset
+
+ with 
+\begin_inset Formula $a\le i<k$
+\end_inset
+
+, then 
+\begin_inset Formula $P\left(k\right)$
+\end_inset
+
+ is true.
+ 
+\end_layout
+
+\begin_layout Standard
+Then the statement 
+\begin_inset Formula $P\left(n\right)$
+\end_inset
+
+ is true for all integers 
+\begin_inset Formula $n\ge a.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2500,7 +2637,11 @@ Divisibility
 \end_layout
 
 \begin_layout Subsection
-Primes and GCD
+Primes and Factors
+\end_layout
+
+\begin_layout Subsection
+Divisors
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2529,6 +2670,77 @@ a & \text{if }b=0\\
 Modular Arithmetic
 \end_layout
 
+\begin_layout Subsubsection*
+Basic Rules
+\end_layout
+
+\begin_layout Standard
+(to follow...)
+\end_layout
+
+\begin_layout Subsubsection*
+Chinese Remainder Theorem
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $m_{1},m_{2},\ldots,m_{n}$
+\end_inset
+
+ be pairwise relatively prime positive integers, and 
+\begin_inset Formula $a_{1},a_{2},\ldots,a_{n}$
+\end_inset
+
+ be arbitrary integers.
+ Then the system 
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{c}
+x\equiv a_{1}\pmod{m_{1}}\\
+x\equiv a_{2}\pmod{m_{2}}\\
+\vdots\\
+x\equiv a_{n}\pmod{m_{n}}
+\end{array}\right.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+has a unique solution modulo 
+\begin_inset Formula $m=m_{1}m_{2}\cdots m_{n}$
+\end_inset
+
+, where 
+\begin_inset Formula $x=\sum_{k=1}^{n}a_{k}M_{k}y_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{k}=\frac{m}{m_{k}}$
+\end_inset
+
+, and 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ is the modular inverse of 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+ modulo 
+\begin_inset Formula $m_{k}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $M_{k}y_{k}\equiv1\pmod{m_{k}}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Graph Theory
 \end_layout
@@ -2539,6 +2751,213 @@ Linear Algebra
 
 \begin_layout Section
 Combinatorics
+\end_layout
+
+\begin_layout Subsection
+Permutations and Combinations
+\end_layout
+
+\begin_layout Subsubsection*
+Permutation
+\end_layout
+
+\begin_layout Standard
+A permutation or ranking of 
+\begin_inset Formula $n$
+\end_inset
+
+ objects is a listing of them in a certain order from first to last.
+\end_layout
+
+\begin_layout Subsubsection*
+Combination
+\end_layout
+
+\begin_layout Standard
+A combination of 
+\begin_inset Formula $k$
+\end_inset
+
+ objects taken from a collection of 
+\begin_inset Formula $n$
+\end_inset
+
+ objects is simply a selection of 
+\begin_inset Formula $k$
+\end_inset
+
+ of those distinct objects without regard to order.
+\end_layout
+
+\begin_layout Subsection
+Binomial Coefficients
+\end_layout
+
+\begin_layout Subsection
+Generalized Permutations and Combinations
+\end_layout
+
+\begin_layout Subsubsection*
+Permutations with Duplicate Objects
+\end_layout
+
+\begin_layout Standard
+The number of permutations of a multiset of 
+\begin_inset Formula $n$
+\end_inset
+
+ objects made up of 
+\begin_inset Formula $k$
+\end_inset
+
+ distinct objects can be expressed as follows: 
+\begin_inset Formula 
+\[
+\binom{n}{n_{1},n_{2},\ldots,n_{k}}=\frac{n!}{n_{1}!n_{2}!\cdots n_{k}!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ represents the multiplicity of a distinct object 
+\begin_inset Formula $i$
+\end_inset
+
+ in the multiset.
+\end_layout
+
+\begin_layout Subsubsection*
+Combinations with Repetition (Dashes and Dividers)
+\end_layout
+
+\begin_layout Standard
+The number of combinations of length 
+\begin_inset Formula $n$
+\end_inset
+
+ using 
+\begin_inset Formula $k$
+\end_inset
+
+ different kinds of objects is 
+\begin_inset Formula 
+\[
+_{n}R_{k}=\binom{n+k-1}{k-1}=\binom{n+k-1}{n}=\frac{\left(n+k-1\right)!}{n!\left(k-1\right)!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Number of Non-negative Integer Solutions
+\end_layout
+
+\begin_layout Standard
+The number of solutions of the equation 
+\begin_inset Formula $x_{1}+x_{2}+\cdots+x_{k}=n$
+\end_inset
+
+ in non-negative integers is 
+\begin_inset Formula $\binom{n+k-1}{k-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Number of Positive Integer Solutions
+\end_layout
+
+\begin_layout Standard
+The number of solutions of the equation 
+\begin_inset Formula $x_{1}+x_{2}+\cdots+x_{k}=n$
+\end_inset
+
+ in positive integers is 
+\begin_inset Formula $\binom{n-1}{k-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Principle of Inclusion-Exclusion
+\end_layout
+
+\begin_layout Standard
+This provides an organized method/formula to find the number of elements
+ in the union of a given group of sets, the size of each set, and the size
+ of all possible intersections among the sets.
+\end_layout
+
+\begin_layout Subsubsection*
+Two/Three Sets
+\end_layout
+
+\begin_layout Standard
+Suppose that 
+\begin_inset Formula $A,$
+\end_inset
+
+
+\begin_inset Formula $B,$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ are finite sets.
+ Then:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|A\cup B|=|A|+|B|-|A\cap B|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+General Form
+\end_layout
+
+\begin_layout Standard
+For finite sets 
+\begin_inset Formula $A_{1},\ldots,A_{n}$
+\end_inset
+
+, one has the identity:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+{\biggl|}\bigcup_{{i=1}}^{n}A_{i}{\biggr|} & = & \sum_{{i=1}}^{n}\left|A_{i}\right|\;-\sum_{{1\leq i<j\leq n}}\left|A_{i}\cap A_{j}\right|\;\\
+ &  & +\sum_{{1\leq i<j<k\leq n}}\left|A_{i}\cap A_{j}\cap A_{k}\right|\;\\
+ &  & -\ \ldots\ +\;\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|\\
+ & = & \sum_{{k=1}}^{{n}}(-1)^{{k+1}}\left(\sum_{{1\leq i_{{1}}<\cdots<i_{{k}}\leq n}}\left|A_{{i_{{1}}}}\cap\cdots\cap A_{{i_{{k}}}}\right|\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

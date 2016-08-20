@@ -1,0 +1,15 @@
+\usepgflibrary{fpu}
+\def\N{10}
+\tikz[x=0.75cm,y=0.5cm, 
+  pascal node/.style={font=\footnotesize}, 
+  row node/.style={font=\footnotesize, anchor=west, shift=(180:1)}]
+  \path  
+    \foreach \n in {0,...,\N} { 
+      (-\N/2-1, -\n) node  [row node/.try]{Row \n:}
+        \foreach \k in {0,...,\n}{
+          (-\n/2+\k,-\n) node [pascal node/.try] {%
+            \pgfkeys{/pgf/fpu}%
+            \pgfmathparse{round(\n!/(\k!*(\n-\k)!))}%
+            \pgfmathfloattoint{\pgfmathresult}%
+            \pgfmathresult%
+          }}};

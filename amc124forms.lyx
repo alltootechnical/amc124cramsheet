@@ -2769,6 +2769,34 @@ A permutation or ranking of
  objects is a listing of them in a certain order from first to last.
 \end_layout
 
+\begin_layout Standard
+The number of permutations of length 
+\begin_inset Formula $k$
+\end_inset
+
+ from 
+\begin_inset Formula $n$
+\end_inset
+
+ distinct objects where repetition is not allowed is 
+\begin_inset Formula 
+\[
+_{n}P_{k}=\left(n\right)_{k}=\frac{n!}{\left(n-k\right)!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\left(n\right)_{k}$
+\end_inset
+
+ denotes the falling factorial.
+\end_layout
+
 \begin_layout Subsubsection*
 Combination
 \end_layout
@@ -2789,12 +2817,112 @@ A combination of
  of those distinct objects without regard to order.
 \end_layout
 
+\begin_layout Standard
+The number of different combinations of 
+\begin_inset Formula $k$
+\end_inset
+
+ objects taken from a collection of 
+\begin_inset Formula $n$
+\end_inset
+
+ distinct objects without repetition is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+_{n}C_{k}=\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Binomial Coefficients
 \end_layout
 
+\begin_layout Standard
+The binomial coefficient 
+\begin_inset Formula $\binom{n}{k}$
+\end_inset
+
+ can be defined as the coefficient of the 
+\begin_inset Formula $x^{k}$
+\end_inset
+
+ term in the polynomial expansion of 
+\begin_inset Formula $\left(x+1\right)^{n}$
+\end_inset
+
+, which occurs in the binomial formula
+\begin_inset Formula 
+\[
+(x+y)^{n}=\sum_{k=0}^{n}{\binom{n}{k}}x^{n-k}y^{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}={\binom{n-1}{k-1}}+{\binom{n-1}{k}}={\binom{n}{n-k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Pascal's Triangle
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pasctriangle.tikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Generalized Permutations and Combinations
+\end_layout
+
+\begin_layout Subsubsection*
+Permutations with Repetitions
+\end_layout
+
+\begin_layout Standard
+The number of permutations of length 
+\begin_inset Formula $k$
+\end_inset
+
+ from 
+\begin_inset Formula $n$
+\end_inset
+
+ distinct objects where repetition is allowed is 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2849,7 +2977,7 @@ The number of combinations of length
  different kinds of objects is 
 \begin_inset Formula 
 \[
-_{n}R_{k}=\binom{n+k-1}{k-1}=\binom{n+k-1}{n}=\frac{\left(n+k-1\right)!}{n!\left(k-1\right)!}
+_{n}R_{k}=\binom{n+k-1}{n-1}=\binom{n+k-1}{k}=\frac{\left(n+k-1\right)!}{k!\left(n-1\right)!}
 \]
 
 \end_inset
@@ -2954,6 +3082,278 @@ For finite sets
  &  & -\ \ldots\ +\;\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|\\
  & = & \sum_{{k=1}}^{{n}}(-1)^{{k+1}}\left(\sum_{{1\leq i_{{1}}<\cdots<i_{{k}}\leq n}}\left|A_{{i_{{1}}}}\cap\cdots\cap A_{{i_{{k}}}}\right|\right)
 \end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Derangements
+\end_layout
+
+\begin_layout Standard
+A derangement is a permutation of the elements of a set, such that no element
+ appears in its original position.
+ The number of derangements of 
+\begin_inset Formula $n$
+\end_inset
+
+ elements can be determined as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+!n=\left(n-1\right)\left(!\left(n-1\right)+!\left(n-2\right)\right)=n!\sum_{k=0}^{n}\frac{\left(-1\right)^{k}}{k!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First few terms: 0, 1, 2, 9, 44, 265, 1854, 14833, 133496, 1334961, 14684570,
+ 176214841, 2290792932, 
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Catalan Numbers
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+C_{n} & = & {\frac{1}{n+1}}{2n \choose n}={\frac{\left(2n\right)!}{\left(n+1\right)!\,n!}}=\prod\limits _{k=2}^{n}{\frac{n+k}{k}}\quad{\mbox{ for }}n\geq0\\
+ & = & \binom{2n}{n}-\binom{2n}{n+1}=\sum_{i=0}^{n-1}C_{i}C_{n-i-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First few terms: 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786,
+ 208012, 742900, 2674440, 9694845, 35357670, 
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Applications
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of expressions containing 
+\begin_inset Formula $n$
+\end_inset
+
+ pairs of parentheses which are correctly matched
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of different ways 
+\begin_inset Formula $n+1$
+\end_inset
+
+ factors can be completely parenthesized
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of full binary trees with 
+\begin_inset Formula $n+1$
+\end_inset
+
+ leaves
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of monotonic lattice paths along the edges of a grid with 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ square cells, which do not pass above the diagonal
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of triangulations of a convex polygon with 
+\begin_inset Formula $n+2$
+\end_inset
+
+ sides
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of permutations of 
+\begin_inset Formula $\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+ that avoid the pattern 123 (or any of the other patterns of length 3)
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of noncrossing partitions of the set 
+\begin_inset Formula $\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of ways to tile a stairstep shape of height 
+\begin_inset Formula $n$
+\end_inset
+
+ with 
+\begin_inset Formula $n$
+\end_inset
+
+ rectangles
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of ways to form a “mountain range” with 
+\begin_inset Formula $n$
+\end_inset
+
+ upstrokes and 
+\begin_inset Formula $n$
+\end_inset
+
+ downstrokes that all stay above the original line
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing other 0.75
+\noindent
+number of semiorders on 
+\begin_inset Formula $n$
+\end_inset
+
+ unlabeled items
+\end_layout
+
+\begin_layout Subsection
+Partitions
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset Formula $p\left(n,k\right)$
+\end_inset
+
+ denotes the number of ways of writing 
+\begin_inset Formula $n$
+\end_inset
+
+ as a sum of exactly 
+\begin_inset Formula $k$
+\end_inset
+
+ terms.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p\left(n,k\right)=\begin{cases}
+1 & \text{if }n=k=0\\
+0 & \text{if }n<k\\
+p\left(n-1,k-1\right)+p\left(n-k,k\right) & \text{if }n\ge k
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Stirling Numbers
+\end_layout
+
+\begin_layout Subsubsection*
+First Kind (Cycles)
+\end_layout
+
+\begin_layout Standard
+Counts number of permutations of 
+\begin_inset Formula $n$
+\end_inset
+
+ elements with 
+\begin_inset Formula $k$
+\end_inset
+
+ disjoint cycles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[{n\atop k}\right]=\begin{cases}
+1 & \text{if }n=k=0\\
+0 & \text{if }n\ne k\wedge k=0\\
+\left(n-1\right)\left[{n-1\atop k}\right]+\left[{n-1\atop k-1}\right] & \text{if }n,k>0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Second Kind (Subsets)
+\end_layout
+
+\begin_layout Standard
+Counts the number of ways to partition a set of 
+\begin_inset Formula $n$
+\end_inset
+
+ objects into 
+\begin_inset Formula $k$
+\end_inset
+
+ non-empty subsets.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ {n\atop k}\right\} =\begin{cases}
+1 & \text{if }n=k=0\\
+0 & \text{if }n\ne k\wedge k=0\\
+\left(k-1\right)\left\{ {n-1\atop k}\right\} +\left\{ {n-1\atop k-1}\right\}  & \text{if }n,k>0
+\end{cases}
+\]
 
 \end_inset
 

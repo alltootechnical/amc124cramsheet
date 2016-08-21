@@ -26,6 +26,15 @@
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxlist}[1]
+{\begin{list}{}
+{\settowidth{\labelwidth}{#1}
+ \setlength{\leftmargin}{\labelwidth}
+ \addtolength{\leftmargin}{\labelsep}
+ \renewcommand{\makelabel}[1]{##1\hfil}}}
+{\end{list}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{multirow}
 \usepackage{graphicx}
@@ -36,7 +45,7 @@
 \usepackage{array}
 \usepackage{pgfplots}
 \usepackage{tocloft}
-\usepackage{mathpazo}
+%%\usepackage{mathpazo}
 
 \usetikzlibrary{calc}
 
@@ -227,10 +236,18 @@ Double Negation & %
 \subsubsection*{Involving Conditional Statements}
 
 \begin{spacing}{0.5}
-\noindent $p\rightarrow q\equiv\lnot p\vee q\qquad$$\qquad p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
+\noindent $p\rightarrow q\equiv\lnot p\vee q$
+\end{spacing}
 
-\noindent $p\vee q\equiv\lnot p\rightarrow q\qquad$$\qquad p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
+\noindent $p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
 
+\begin{spacing}{0.5}
+\noindent $p\vee q\equiv\lnot p\rightarrow q$
+\end{spacing}
+
+\noindent $p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
+
+\begin{spacing}{0.5}
 \noindent $\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)\equiv p\rightarrow\left(q\wedge r\right)$
 
 \noindent $\left(p\rightarrow r\right)\wedge\left(q\rightarrow r\right)\equiv\left(p\vee q\right)\rightarrow r$
@@ -428,6 +445,16 @@ a & \text{if }b=0\\
 (to follow...)
 
 
+\subsubsection*{Fermat's Little Theorem}
+
+If $p$ is a prime number and $a$ is a natural number, then
+
+\[
+a^{p}\equiv a\pmod{p}
+\]
+
+
+
 \subsubsection*{Chinese Remainder Theorem}
 
 Let $m_{1},m_{2},\ldots,m_{n}$ be pairwise relatively prime positive
@@ -449,6 +476,87 @@ modulo $m_{k}$, i.e. $M_{k}y_{k}\equiv1\pmod{m_{k}}$.
 
 
 \section{Graph Theory}
+
+
+\subsection{Notation}
+
+
+\subsubsection*{Fundamental Notation}
+
+\begin{multicols*}{2}
+\begin{lyxlist}{00.00.0000}
+\begin{spacing}{0.5}
+\item [{$G$}] \noindent graph
+\item [{$V$}] \noindent vertex set
+\item [{$E$}] \noindent edge set\end{spacing}
+
+\end{lyxlist}
+\end{multicols*}
+
+
+\subsubsection*{Graph Invariants}
+
+\begin{multicols}{2}
+\begin{lyxlist}{00.00.0000}
+\begin{spacing}{0.3}
+\item [{$c\left(G\right)$}] \noindent circumference
+\item [{$d\left(u,v\right)$}] \noindent distance between two vertices
+\item [{$\deg\left(v\right)$}] \noindent degree of \\
+a vertex
+\item [{$\mathrm{gir}\left(G\right)$}] \noindent girth
+\item [{$\chi\left(G\right)$}] \noindent chromatic \\
+number
+\item [{$\chi^{\prime}\left(G\right)$}] \noindent chromatic index
+\item [{$\delta\left(G\right)$}] \noindent minimum degree
+\item [{$\Delta\left(G\right)$}] \noindent maximum \\
+degree
+\item [{$\kappa\left(G\right)$}] \noindent vertex \\
+connectivity
+\item [{$\lambda\left(G\right)$}] \noindent edge \\
+connectivity\end{spacing}
+
+\end{lyxlist}
+\end{multicols}
+
+\begin{spacing}{0.3}
+
+\subsection{\noindent Definitions}
+\end{spacing}
+\begin{description}
+\item [{graph}] an ordered pair $\left(V,E\right)$ where $V$ is the set
+of vertices and $E$ is the set of edges
+\item [{simple}] a graph having neither loops nor multiple edges
+\item [{multigraph}] a graph with multiple edges but no loops
+\item [{pseudograph}] a graph having both loops and multiple edges
+\item [{digraph}] a directed graph in which each edge has a direction
+\item [{adjacency}] two distinct vertices $v$ and $w$ in a graph are
+adjacent if the pair $\left\{ v,w\right\} $ is an edge
+\item [{incidence}] a vertex $v$ and an edge $e$ are incident with one
+another if $v\in e$
+\item [{degree}] (of a vertex $v$, in symbols $\deg\left(v\right)$) the
+number of vertices adjacent to $v$ 
+\item [{walk}] an alternating sequence $v_{0},e_{1},v_{1},\ldots,e_{k},v_{k}$
+of vertices $v_{i}$ and edges $e_{i}$ for which $e_{i}$ is incident
+with $v_{i-1}$ and with $v_{i}$ for each $i$
+\item [{path}] a walk whose vertices are distinct
+\item [{trail}] a walk whose edges are distinct
+\item [{circuit}] a trail whose first and last vertices are identical
+\item [{cycle}] a circuit where each pair of whose vertices other than
+the first and the last are distinct
+\end{description}
+
+\subsection{Properties}
+
+
+\subsubsection*{Handshaking Lemma}
+
+In any graph the sum of the vertex degrees is equal to twice the number
+of edges.
+
+\[
+\sum_{v\in V}\deg\left(v\right)=2|E|
+\]
+
 
 
 \section{Linear Algebra}
@@ -535,7 +643,7 @@ where $n_{i}$ represents the multiplicity of a distinct object $i$
 in the multiset.
 
 
-\subsubsection*{Combinations with Repetition (Dashes and Dividers)}
+\subsubsection*{Combinations with Repetition (Stars and Bars)}
 
 The number of combinations of length $n$ using $k$ different kinds
 of objects is 
@@ -596,8 +704,9 @@ of $n$ elements can be determined as follows:
 \]
 
 
-First few terms: 0, 1, 2, 9, 44, 265, 1854, 14833, 133496, 1334961,
-14684570, 176214841, 2290792932, $\ldots$
+\textsc{oeis} \href{http://oeis.org/A000166}{A000166}: 0, 1, 2, 9,
+44, 265, 1854, 14833, 133496, 1334961, 14684570, 176214841, 2290792932,
+$\ldots$
 
 
 \subsection{Catalan Numbers}
@@ -608,8 +717,9 @@ C_{n} & = & {\frac{1}{n+1}}{2n \choose n}={\frac{\left(2n\right)!}{\left(n+1\rig
 \end{eqnarray*}
 
 
-First few terms: 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796,
-58786, 208012, 742900, 2674440, 9694845, 35357670, $\ldots$
+\textsc{oeis} \href{http://oeis.org/A000108}{A000108}: 1, 1, 2, 5,
+14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440,
+9694845, 35357670, $\ldots$
 
 
 \subsubsection*{Applications}

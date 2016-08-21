@@ -13,7 +13,7 @@
 \usepackage{array}
 \usepackage{pgfplots}
 \usepackage{tocloft}
-\usepackage{mathpazo}
+%%\usepackage{mathpazo}
 
 \usetikzlibrary{calc}
 
@@ -1886,11 +1886,15 @@ Involving Conditional Statements
 \begin_layout Standard
 \paragraph_spacing other 0.5
 \noindent
-\begin_inset Formula $p\rightarrow q\equiv\lnot p\vee q\qquad$
+\begin_inset Formula $p\rightarrow q\equiv\lnot p\vee q$
 \end_inset
 
 
-\begin_inset Formula $\qquad p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Formula $p\rightarrow q\equiv\lnot q\rightarrow\lnot p$
 \end_inset
 
 
@@ -1899,11 +1903,15 @@ Involving Conditional Statements
 \begin_layout Standard
 \paragraph_spacing other 0.5
 \noindent
-\begin_inset Formula $p\vee q\equiv\lnot p\rightarrow q\qquad$
+\begin_inset Formula $p\vee q\equiv\lnot p\rightarrow q$
 \end_inset
 
 
-\begin_inset Formula $\qquad p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Formula $p\wedge q\equiv\lnot\left(p\rightarrow\lnot q\right)$
 \end_inset
 
 
@@ -2679,6 +2687,33 @@ Basic Rules
 \end_layout
 
 \begin_layout Subsubsection*
+Fermat's Little Theorem
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $p$
+\end_inset
+
+ is a prime number and 
+\begin_inset Formula $a$
+\end_inset
+
+ is a natural number, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a^{p}\equiv a\pmod{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
 Chinese Remainder Theorem
 \end_layout
 
@@ -2743,6 +2778,391 @@ has a unique solution modulo
 
 \begin_layout Section
 Graph Theory
+\end_layout
+
+\begin_layout Subsection
+Notation
+\end_layout
+
+\begin_layout Subsubsection*
+Fundamental Notation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols*}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.5
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $G$
+\end_inset
+
+ graph
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.5
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $V$
+\end_inset
+
+ vertex set
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.5
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $E$
+\end_inset
+
+ edge set
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Graph Invariants
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $c\left(G\right)$
+\end_inset
+
+ circumference
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $d\left(u,v\right)$
+\end_inset
+
+ distance between two vertices
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\deg\left(v\right)$
+\end_inset
+
+ degree of 
+\begin_inset Newline newline
+\end_inset
+
+a vertex
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\mathrm{gir}\left(G\right)$
+\end_inset
+
+ girth
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\chi\left(G\right)$
+\end_inset
+
+ chromatic 
+\begin_inset Newline newline
+\end_inset
+
+number
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\chi^{\prime}\left(G\right)$
+\end_inset
+
+ chromatic index
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\delta\left(G\right)$
+\end_inset
+
+ minimum degree
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\Delta\left(G\right)$
+\end_inset
+
+ maximum 
+\begin_inset Newline newline
+\end_inset
+
+degree
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\kappa\left(G\right)$
+\end_inset
+
+ vertex 
+\begin_inset Newline newline
+\end_inset
+
+connectivity
+\end_layout
+
+\begin_layout Labeling
+\paragraph_spacing other 0.3
+\labelwidthstring 00.00.0000
+\noindent
+\begin_inset Formula $\lambda\left(G\right)$
+\end_inset
+
+ edge 
+\begin_inset Newline newline
+\end_inset
+
+connectivity
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\paragraph_spacing other 0.3
+\noindent
+Definitions
+\end_layout
+
+\begin_layout Description
+graph an ordered pair 
+\begin_inset Formula $\left(V,E\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $V$
+\end_inset
+
+ is the set of vertices and 
+\begin_inset Formula $E$
+\end_inset
+
+ is the set of edges
+\end_layout
+
+\begin_layout Description
+simple a graph having neither loops nor multiple edges
+\end_layout
+
+\begin_layout Description
+multigraph a graph with multiple edges but no loops
+\end_layout
+
+\begin_layout Description
+pseudograph a graph having both loops and multiple edges
+\end_layout
+
+\begin_layout Description
+digraph a directed graph in which each edge has a direction
+\end_layout
+
+\begin_layout Description
+adjacency two distinct vertices 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $w$
+\end_inset
+
+ in a graph are adjacent if the pair 
+\begin_inset Formula $\left\{ v,w\right\} $
+\end_inset
+
+ is an edge
+\end_layout
+
+\begin_layout Description
+incidence a vertex 
+\begin_inset Formula $v$
+\end_inset
+
+ and an edge 
+\begin_inset Formula $e$
+\end_inset
+
+ are incident with one another if 
+\begin_inset Formula $v\in e$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+degree (of a vertex 
+\begin_inset Formula $v$
+\end_inset
+
+, in symbols 
+\begin_inset Formula $\deg\left(v\right)$
+\end_inset
+
+) the number of vertices adjacent to 
+\begin_inset Formula $v$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Description
+walk an alternating sequence 
+\begin_inset Formula $v_{0},e_{1},v_{1},\ldots,e_{k},v_{k}$
+\end_inset
+
+ of vertices 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and edges 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ for which 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ is incident with 
+\begin_inset Formula $v_{i-1}$
+\end_inset
+
+ and with 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+path a walk whose vertices are distinct
+\end_layout
+
+\begin_layout Description
+trail a walk whose edges are distinct
+\end_layout
+
+\begin_layout Description
+circuit a trail whose first and last vertices are identical
+\end_layout
+
+\begin_layout Description
+cycle a circuit where each pair of whose vertices other than the first and
+ the last are distinct
+\end_layout
+
+\begin_layout Subsection
+Properties
+\end_layout
+
+\begin_layout Subsubsection*
+Handshaking Lemma
+\end_layout
+
+\begin_layout Standard
+In any graph the sum of the vertex degrees is equal to twice the number
+ of edges.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{v\in V}\deg\left(v\right)=2|E|
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2962,7 +3382,7 @@ where
 \end_layout
 
 \begin_layout Subsubsection*
-Combinations with Repetition (Dashes and Dividers)
+Combinations with Repetition (Stars and Bars)
 \end_layout
 
 \begin_layout Standard
@@ -3114,8 +3534,20 @@ A derangement is a permutation of the elements of a set, such that no element
 \end_layout
 
 \begin_layout Standard
-First few terms: 0, 1, 2, 9, 44, 265, 1854, 14833, 133496, 1334961, 14684570,
- 176214841, 2290792932, 
+
+\shape smallcaps
+oeis
+\shape default
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "A000166"
+target "http://oeis.org/A000166"
+
+\end_inset
+
+: 0, 1, 2, 9, 44, 265, 1854, 14833, 133496, 1334961, 14684570, 176214841,
+ 2290792932, 
 \begin_inset Formula $\ldots$
 \end_inset
 
@@ -3139,8 +3571,20 @@ C_{n} & = & {\frac{1}{n+1}}{2n \choose n}={\frac{\left(2n\right)!}{\left(n+1\rig
 \end_layout
 
 \begin_layout Standard
-First few terms: 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786,
- 208012, 742900, 2674440, 9694845, 35357670, 
+
+\shape smallcaps
+oeis
+\shape default
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "A000108"
+target "http://oeis.org/A000108"
+
+\end_inset
+
+: 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900,
+ 2674440, 9694845, 35357670, 
 \begin_inset Formula $\ldots$
 \end_inset
 

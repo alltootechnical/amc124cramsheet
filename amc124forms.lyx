@@ -417,7 +417,7 @@ contradiction
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\veebar q$
+\begin_inset Formula $p\:\overline{\vee}\:q$
 \end_inset
 
 
